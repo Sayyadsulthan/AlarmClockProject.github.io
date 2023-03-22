@@ -1,3 +1,59 @@
+/* media query for different devices images will change */
+@media (max-width:600px) {
+    body{
+        background-image: url('images/max-width-600px.jpeg');
+        background-repeat: repeat-y;
+        background-attachment: fixed;
+        background-size: contain;
+    }
+    header{
+        color: antiquewhite;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: aquamarine ;
+        /* background-image: -moz-linear-gradient(120deg ); */
+        padding: 20px;
+        margin-bottom: 0px !important;
+    }
+
+    .dropdown-toggle {
+        /* font-weight: 600 !important; */
+        color:antiquewhite !important;
+    }
+
+    .mainClock {
+        margin-top: 30px;
+       font-weight: 900;
+       color: antiquewhite;
+    }
+}
+
+@media (min-width:600px) {
+    body{
+        background-image: url('images/min-width-600px.png');
+        background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    /* color: black !important; */
+    }
+
+    .clock{
+        color:black !important;
+    }
+}
+@media (min-width:820px){
+    body{
+        background-image: url('images/min-width-820px.png' );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+
+    .clock{
+        color: antiquewhite !important;
+    }
+}
+
 
 body {
     /* padding-top: 10px; */
@@ -6,10 +62,10 @@ body {
     align-items: center;
     font-family: 'Lucida Sans Unicode' !important;
     font-weight: 600 !important;
-    background-image: url('https://images.unsplash.com/photo-1575203091586-611fe505bb0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60 ' );
+    /* background-image: url('https://images.unsplash.com/photo-1575203091586-611fe505bb0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60 ' );
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     
 }
 
