@@ -65,15 +65,12 @@ function check() {
                     // dropdown_zone.innerHTML="PM";
                     dropdown_zone.innerHTML = zoneItem;
                     store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-                } else if (set_hour.value == 24) {
+                } else if (set_hour.value == 24 || set_hour.value>=0 && set_hour.value< 12) {
                     // dropdown_zone.innerHTML="AM"
                     zoneItem = "AM";
                     dropdown_zone.innerHTML = zoneItem;
                     store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-                } else {
-                    store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-
-                }
+                } 
 
                 if (set_hour.value >= 1 && set_hour.value <= 9) {
                     shortnum = parseInt(set_hour.value);
@@ -133,16 +130,12 @@ function check() {
                 zoneItem = "PM";
                 dropdown_zone.innerHTML = zoneItem;
                 store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-            } else if (set_hour.value == 24) {
+            } else if (set_hour.value == 24 || set_hour.value>=0 && set_hour.value< 12) {
                 // dropdown_zone.innerHTML="AM"
                 zoneItem = "AM";
                 dropdown_zone.innerHTML = zoneItem;
                 store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-            } else {
-
-                store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-
-            }
+            } 
 
             if (set_hour.value >= 1 && set_hour.value <= 9) {
                 shortnum = parseInt(set_hour.value);
