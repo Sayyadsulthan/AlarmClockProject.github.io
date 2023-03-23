@@ -35,13 +35,13 @@ for (let zoneTravel = 0; zoneTravel < 2; zoneTravel++) {
 function check() {
 
     //shows alert if entered invalid number
-    if (set_hour.value < 0 || set_hour.value > 24 && set_minute.value < 0 || set_minute.value > 60 && set_second.value < 0 || set_second.value > 60) {
-        alert("please check time you entered are valid!!");
+    if (set_hour.value < 0 || set_hour.value > 12 && set_minute.value < 0 || set_minute.value > 60 && set_second.value < 0 || set_second.value > 60) {
+        alert("please check time you entered are valid!! 12 hour clock");
         return;
     }
-    else if (set_hour.value < 0 || set_hour.value > 24) {
+    else if (set_hour.value < 0 || set_hour.value > 12) {
         // if(set_hour==12 && )
-        alert("please enter hour between 0 to 24");
+        alert("please enter hour between 0 to 12");
         return;
     }
     else if (set_minute.value < 0 || set_minute.value > 60) {
@@ -60,17 +60,7 @@ function check() {
             if (store[k].style.width == "0px") {
 
                 // let zoneItem=dropdown_zone.innerHTML;
-                if (set_hour.value >= 12 && set_hour.value < 24) {
-                    zoneItem = "PM";
-                    // dropdown_zone.innerHTML="PM";
-                    dropdown_zone.innerHTML = zoneItem;
-                    store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-                } else if (set_hour.value == 24 || set_hour.value>=0 && set_hour.value< 12) {
-                    // dropdown_zone.innerHTML="AM"
-                    zoneItem = "AM";
-                    dropdown_zone.innerHTML = zoneItem;
-                    store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-                } 
+                
 
                 if (set_hour.value >= 1 && set_hour.value <= 9) {
                     shortnum = parseInt(set_hour.value);
@@ -78,10 +68,7 @@ function check() {
                     set_hour.value = "0" + shortnum;
                 }
                 else if (set_hour.value > 9) {
-                    if (set_hour.value == 24) {
-                        set_hour.value = "00";
-                        dropdown_zone.innerHTML = "AM";
-                    }
+                    
                     store[k].querySelector('.hour').innerHTML = set_hour.value;
                 } else {
                     set_hour.value = "00";
@@ -90,12 +77,13 @@ function check() {
 
                 if (set_minute.value >= 1 && set_minute.value <= 9) {
                     shortnum = parseInt(set_minute.value);
-                    store[k].querySelector('.minute').innerHTML = "0" + shortnum;
-                    // set_minute.value="0"+shortnum;
-                    set_minute.value = shortnum;
+                    set_minute.value="0"+shortnum;
+                    store[k].querySelector('.minute').innerHTML = set_minute.value;
+                    // set_minute.value = shortnum;
                 }
                 else if (set_minute.value > 9) {
                     store[k].querySelector('.minute').innerHTML = set_minute.value;
+
                 } else {
                     set_minute.value = "00";
                     store[k].querySelector('.minute').innerHTML = "00";
@@ -103,8 +91,8 @@ function check() {
 
                 if (set_second.value >= 1 && set_second.value <= 9) {
                     shortnum = parseInt(set_second.value);
-                    store[k].querySelector('.seconds').innerHTML = "0" + shortnum;
                     set_second.value = "0" + shortnum;
+                    store[k].querySelector('.seconds').innerHTML = set_second.value;
                 }
                 else if (set_second.value > 9) {
                     store[k].querySelector('.seconds').innerHTML = set_second.value;
@@ -125,17 +113,7 @@ function check() {
         } else {
 
             countalrm++;
-            if (set_hour.value >= 12 && set_hour.value < 24) {
-                // dropdown_zone.innerHTML="PM";
-                zoneItem = "PM";
-                dropdown_zone.innerHTML = zoneItem;
-                store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-            } else if (set_hour.value == 24 || set_hour.value>=0 && set_hour.value< 12) {
-                // dropdown_zone.innerHTML="AM"
-                zoneItem = "AM";
-                dropdown_zone.innerHTML = zoneItem;
-                store[k].querySelector('.Time_zone').innerHTML = zoneItem;
-            } 
+           
 
             if (set_hour.value >= 1 && set_hour.value <= 9) {
                 shortnum = parseInt(set_hour.value);
@@ -143,10 +121,7 @@ function check() {
                 set_hour.value = "0" + shortnum;
             }
             else if (set_hour.value > 9) {
-                if (set_hour.value == 24) {
-                    set_hour.value = "00";
-                    dropdown_zone.innerHTML = "AM";
-                }
+                
                 store[k].querySelector('.hour').innerHTML = set_hour.value;
             } else {
                 set_hour.value = "00";
@@ -155,8 +130,8 @@ function check() {
 
             if (set_minute.value >= 1 && set_minute.value <= 9) {
                 shortnum = parseInt(set_minute.value);
-                store[k].querySelector('.minute').innerHTML = "0" + set_minute.value;
                 set_minute.value = "0" + shortnum;
+                store[k].querySelector('.minute').innerHTML = set_minute.value;
             }
             else if (set_minute.value > 9) {
                 store[k].querySelector('.minute').innerHTML = set_minute.value;
@@ -167,8 +142,8 @@ function check() {
 
             if (set_second.value >= 1 && set_second.value <= 9) {
                 shortnum = parseInt(set_second.value);
-                store[k].querySelector('.seconds').innerHTML = "0" + set_second.value;
                 set_second.value = "0" + shortnum;
+                store[k].querySelector('.seconds').innerHTML =  set_second.value;
             }
             else if (set_second.value > 9) {
                 store[k].querySelector('.seconds').innerHTML = set_second.value;
@@ -178,6 +153,7 @@ function check() {
                 store[k].querySelector('.seconds').innerHTML = "00";
             }
 
+            store[k].querySelector('.Time_zone').innerHTML=zoneItem;
             store[k].style.height = "auto";
             store[k].style.width = "auto";
             store[k].style.padding = "20px";
@@ -202,11 +178,16 @@ var Interval = setInterval(function () {
     let minute = date.getMinutes();
     let second = date.getSeconds();
     let temp;
+    temp = hour < 12 ? "AM" : "PM";
 
+    if(hour>12 ){
+        hour=hour%12;
+    }else if(hour==12 || hour==24){
+        hour=12;
+    }
     d_hour.innerHTML = hour;
     d_minute.innerHTML = minute;
     d_seconds.innerHTML = second;
-    temp = hour < 12 ? "AM" : "PM";
     d_am_pm.innerHTML = temp;
 
     for (let k = 0; k < store.length; k++) {

@@ -118,6 +118,7 @@ header {
     border-radius: 1rem;
     margin: 10px auto;
     align-items: center;
+    /* color: aqua; */
 }
 
 .delete-btn {
@@ -132,13 +133,17 @@ header {
     background-color: red !important;
 }
 
-div.title-alarm {
+.delete-btn:hover, .title-alarm:hover{
+    transform: scale(1.1);
+}
+
+.Alram-title{
     background-color: rgb(218, 243, 228);
     padding-left: 10%;
     padding-right: 10%;
     transform: scale(2, 1.5);
+    border-radius: 2rem;
 }
-
 .dropdown {
     display: inline-block;
     /* color: aquamarine; */
