@@ -78,6 +78,7 @@ header {
 .mainClock {
     margin-top: 30px;
     font-weight: 900;
+    font-size: xx-large;
 }
 
 .clock>button {

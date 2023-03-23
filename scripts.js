@@ -24,19 +24,19 @@ let set_minute = document.querySelector('.set-minute');
 let set_second = document.querySelector('.set-second');
 // set_hour.value=00,set_minute.value=00,set_second.value=00;
 let countalrm = 0;
-for (let zoneTravel = 0; zoneTravel < 2; zoneTravel++) {
+for (let zoneTravel = 0; zoneTravel < zone.length; zoneTravel++) {
     zone[zoneTravel].addEventListener('click', function () {
         dropdown_zone.innerHTML = zone[zoneTravel].innerHTML;
         zoneItem = zone[zoneTravel].innerHTML;
-    })
+    });
 }
 
 //when the set Alrm button clicks
 function check() {
 
     //shows alert if entered invalid number
-    if (set_hour.value < 0 || set_hour.value > 12 && set_minute.value < 0 || set_minute.value > 60 && set_second.value < 0 || set_second.value > 60) {
-        alert("please check time you entered are valid!! 12 hour clock");
+    if (set_hour.value < 0 || set_hour.value > 12 && set_minute.value < 0 || set_minute.value > 59 && set_second.value < 0 || set_second.value > 59) {
+        alert("please check time you entered are valid!! 12 hour clock minute and time should be 0 to 59");
         return;
     }
     else if (set_hour.value < 0 || set_hour.value > 12) {
@@ -44,12 +44,12 @@ function check() {
         alert("please enter hour between 0 to 12");
         return;
     }
-    else if (set_minute.value < 0 || set_minute.value > 60) {
-        alert("please enter minutes between 0 to 60");
+    else if (set_minute.value < 0 || set_minute.value > 59) {
+        alert("please enter minutes between 0 to 59");
         return;
     }
-    else if (set_second.value < 0 || set_second.value > 60) {
-        alert("please enter seconds between 0 to 60");
+    else if (set_second.value < 0 || set_second.value > 59) {
+        alert("please enter seconds between 0 to 59");
         return;
     }
 
@@ -101,7 +101,7 @@ function check() {
                     store[k].querySelector('.seconds').innerHTML = "00";
                 }
 
-
+                store[k].querySelector('.Time_zone').innerHTML=zoneItem;
                 store[k].style.width = "auto";
                 store[k].style.height = "auto";
                 store[k].style.padding = "20px";
@@ -165,6 +165,7 @@ function check() {
             }
             break;
         }
+        
     }
 
 
