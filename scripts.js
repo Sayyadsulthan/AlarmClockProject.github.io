@@ -207,6 +207,7 @@ var Interval = setInterval(function () {
 
 }, 1000);
 
+
 // initializing height and width of alrm event
 function initialize() {
 
